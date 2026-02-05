@@ -115,6 +115,94 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 <p>Cette formation me prépare à devenir un développeur conscient des enjeux de sécurité.</p>
 </div>
 <hr>
+<h2>💉 Étude approfondie des injections SQL</h2>
+<div class="card">
+<h3>Vue d'ensemble</h3>
+<p>Les injections SQL (SQLi) représentent l'une des vulnérabilités les plus critiques dans la sécurité web. J'ai étudié ces failles en profondeur pour comprendre leurs mécanismes et apprendre à m'en protéger en tant que futur développeur.</p>
+<h3>Classification des failles (du plus simple au plus complexe)</h3>
+<h4>1. Injection de base (Simple String Injection)</h4>
+<p><strong>Niveau de complexité : Faible</strong></p>
+<p>La plus fondamentale des failles SQL. L'attaquant insère directement du code SQL dans une entrée utilisateur non sécurisée.</p>
+<ul>
+<li><strong>Principe</strong> : Modification d'une requête pour altérer son comportement</li>
+<li><strong>Exemple type</strong> : Sur <code>SELECT * FROM users WHERE username = 'user_input'</code>, l'injection <code>' OR '1'='1</code> permet de contourner l'authentification</li>
+<li><strong>Apprentissage</strong> : Nécessite peu de connaissances techniques mais illustre parfaitement pourquoi la validation des entrées est cruciale</li>
+</ul>
+<h4>2. Injection UNION-based</h4>
+<p><strong>Niveau de complexité : Moyen</strong></p>
+<p>Utilisation de l'opérateur UNION pour combiner des requêtes et extraire des données supplémentaires.</p>
+<ul>
+<li><strong>Principe</strong> : Fusion de la requête originale avec une requête malveillante</li>
+<li><strong>Exemple</strong> : Sur <code>SELECT username FROM users WHERE id = 'user_input'</code>, l'injection <code>1 UNION SELECT username, password FROM admin_table</code> expose des données sensibles</li>
+<li><strong>Prérequis</strong> : Compréhension des schémas de base de données et correspondance des structures de colonnes</li>
+</ul>
+<h4>3. Injection Error-based</h4>
+<p><strong>Niveau de complexité : Moyen</strong></p>
+<p>Exploitation des messages d'erreur SQL pour extraire des informations sur la structure de la base de données.</p>
+<ul>
+<li><strong>Principe</strong> : Provoquer délibérément des erreurs pour que le serveur révèle des détails sensibles</li>
+<li><strong>Exemple</strong> : <code>' AND 1=CONVERT(int, (SELECT password FROM users))--</code> génère une erreur qui peut exposer des données</li>
+<li><strong>Conditions</strong> : Dépend de la configuration du serveur pour afficher les erreurs</li>
+</ul>
+<h4>4. Injection Blind (Boolean-based)</h4>
+<p><strong>Niveau de complexité : Élevé</strong></p>
+<p>Aucune donnée n'est retournée directement. L'attaquant infère les informations en posant des questions vraies ou fausses.</p>
+<ul>
+<li><strong>Principe</strong> : Extraction d'informations bit par bit via des conditions logiques</li>
+<li><strong>Exemple</strong> : <code>AND (SELECT COUNT(*) FROM secret_table) &gt; 5</code> permet de déterminer l'existence d'une table</li>
+<li><strong>Méthode</strong> : Nécessite des tests itératifs et souvent des scripts automatisés</li>
+</ul>
+<h4>5. Injection Blind (Time-based)</h4>
+<p><strong>Niveau de complexité : Très élevé</strong></p>
+<p>Variante utilisant des fonctions de délai pour mesurer le temps de réponse et déduire si une condition est vraie.</p>
+<ul>
+<li><strong>Principe</strong> : Mesure du temps de réponse via des fonctions comme SLEEP (MySQL)</li>
+<li><strong>Exemple</strong> : <code>AND IF(1=1, SLEEP(5), 0)</code> - un délai de 5 secondes confirme que la condition est vraie</li>
+<li><strong>Contraintes</strong> : Attaques lentes, répétées, sensibles à la latence réseau</li>
+</ul>
+<h4>6. Injection Out-of-band</h4>
+<p><strong>Niveau de complexité : Très élevé</strong></p>
+<p>Forcer la base de données à envoyer des données via un canal externe (DNS, email) quand les canaux normaux sont bloqués.</p>
+<ul>
+<li><strong>Principe</strong> : Exfiltration de données via des protocoles alternatifs</li>
+<li><strong>Exemple</strong> : Utilisation de <code>LOAD_FILE</code> ou <code>xp_dirtree</code> pour extraire vers un serveur contrôlé par l'attaquant</li>
+<li><strong>Prérequis</strong> : Contrôle sur des serveurs externes et configurations réseau spécifiques</li>
+</ul>
+<h4>7. Injection Stacked Queries</h4>
+<p><strong>Niveau de complexité : Très élevé</strong></p>
+<p>Enchaînement de plusieurs requêtes dans une seule injection pour exécuter des commandes multiples.</p>
+<ul>
+<li><strong>Principe</strong> : Exécution séquentielle de commandes SQL distinctes</li>
+<li><strong>Exemple</strong> : <code>SELECT * FROM users; DROP TABLE secrets;</code> exécute les deux instructions</li>
+<li><strong>Limitation</strong> : Dépend fortement de si le backend autorise l'exécution multiple</li>
+</ul>
+<h4>8. Injection Second-order</h4>
+<p><strong>Niveau de complexité : Extrêmement élevé</strong></p>
+<p>La plus sophistiquée : l'injection n'est pas immédiate mais se produit via des données stockées réutilisées ultérieurement.</p>
+<ul>
+<li><strong>Principe</strong> : Injection différée via des données persistées qui sont réutilisées dans d'autres requêtes</li>
+<li><strong>Exemple</strong> : Une chaîne malveillante insérée dans un profil utilisateur, puis exploitée lors d'une requête admin</li>
+<li><strong>Exigences</strong> : Planification à long terme, compréhension approfondie des flux applicatifs</li>
+</ul>
+<h3>Protections étudiées</h3>
+<p>Dans le cadre de mon apprentissage, j'ai également étudié les contre-mesures essentielles :</p>
+<ul>
+<li><strong>Prepared Statements</strong> : Séparation du code SQL et des données</li>
+<li><strong>Échappement des entrées</strong> : Neutralisation des caractères spéciaux</li>
+<li><strong>Validation stricte</strong> : Vérification des types et formats d'entrée</li>
+<li><strong>Principe du moindre privilège</strong> : Limitation des droits des comptes de base de données</li>
+<li><strong>Web Application Firewalls (WAF)</strong> : Détection et blocage des tentatives d'injection</li>
+</ul>
+<h3>Impact sur ma formation</h3>
+<p>Cette étude approfondie des injections SQL me permet de :</p>
+<ul>
+<li>Comprendre les vulnérabilités du point de vue de l'attaquant</li>
+<li>Développer avec une mentalité &quot;security-first&quot;</li>
+<li>Identifier et corriger les failles potentielles dans mon propre code</li>
+<li>Me préparer aux certifications en cybersécurité</li>
+</ul>
+</div>
+<hr>
 <h2>🐍 Développement de scripts Python</h2>
 <div class="card">
 <h3>Projets réalisés</h3>
