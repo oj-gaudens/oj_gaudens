@@ -11,53 +11,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   
-  <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- CSS - AJOUT DU FILTRE | url -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
 </head>
-
 <body>
   
   <!-- Navigation avec photo en bulle -->
   <nav class="main-nav">
     <div class="nav-container">
-      <a href="/" class="nav-photo-link">
+      <!-- AJOUT DU FILTRE | url -->
+      <a href="{{ '/' | url }}" class="nav-photo-link">
         <div class="nav-photo-bubble">
-          <img src="/assets/images/photo.png" alt="Oumar-Julien Gaudens" class="nav-photo">
+          <!-- AJOUT DU FILTRE | url -->
+          <img src="{{ '/assets/images/photo.png' | url }}" alt="Oumar-Julien Gaudens" class="nav-photo">
         </div>
       </a>
       
       <div class="nav-links">
-        <a href="/" class="nav-link">Accueil</a>
-        <a href="/CV/" class="nav-link">CV</a>
-        <a href="/about/" class="nav-link">À propos</a>
-        <a href="/projects/" class="nav-link">Projets</a>
-        <a href="/experience/" class="nav-link">Parcours</a>
-        <a href="/skills/" class="nav-link">Compétences</a>
-        <a href="/contact/" class="nav-link">Contact</a>
+        <!-- AJOUT DU FILTRE | url SUR TOUS LES LIENS -->
+        <a href="{{ '/' | url }}" class="nav-link">Accueil</a>
+        <a href="{{ '/CV/' | url }}" class="nav-link">CV</a>
+        <a href="{{ '/about/' | url }}" class="nav-link">À propos</a>
+        <a href="{{ '/projects/' | url }}" class="nav-link">Projets</a>
+        <a href="{{ '/experience/' | url }}" class="nav-link">Parcours</a>
+        <a href="{{ '/skills/' | url }}" class="nav-link">Compétences</a>
+        <a href="{{ '/contact/' | url }}" class="nav-link">Contact</a>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Changer de thème">
           <span class="theme-icon">🌙</span>
         </button>
       </div>
     </div>
   </nav>
-
+  
   <!-- Terminal animation -->
   <div class="terminal-wrapper">
     <div class="terminal" id="terminal"></div>
   </div>
-
+  
   <!-- Contenu principal -->
   <main class="main-content">
     {{ content | safe }}
   </main>
-
+  
   <!-- Footer -->
   <footer class="main-footer">
     <p>&copy; 2026 Oumar-Julien Gaudens • Portfolio Cybersécurité & Tech</p>
   </footer>
-
-  <!-- JavaScript -->
-  <script src="/assets/js/theme.js"></script>
-
+  
+  <!-- JavaScript - AJOUT DU FILTRE | url -->
+  <script src="{{ '/assets/js/theme.js' | url }}"></script>
 </body>
 </html>
