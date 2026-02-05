@@ -3,16 +3,17 @@
   "version": "5.0.0",
   "scripts": {
     "dev": "npx @11ty/eleventy --serve",
-    "build": "NODE_ENV=production npx @11ty/eleventy"
+    "build": "cross-env NODE_ENV=production npx @11ty/eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "cross-env": "^7.0.3"
   },
   "description": "Portfolio Oumar-Julien Gaudens - Cybersécurité & Développement",
   "main": ".eleventy.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oj-gaudens/oj.gaudens.git"
+    "url": "git+https://github.com/oj-gaudens/oj_gaudens.git"
   },
   "keywords": ["cybersecurity", "portfolio", "eleventy"],
   "author": "Oumar-Julien Gaudens",
