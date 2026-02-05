@@ -1,10 +1,8 @@
-const isProd = process.env.NODE_ENV === "production";
-
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   
   return {
-    pathPrefix: isProd ? "/oj.gaudens/" : "/",  // ⬅️ POINT, pas tiret !
+    pathPrefix: "/oj_gaudens/",  // ⬅️ UNDERSCORE, pas point !
     dir: {
       input: "src",
       includes: "_includes",
