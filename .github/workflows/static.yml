@@ -20,6 +20,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,6 +37,22 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+      
+      - name: Debug - List generated files
+        run: |
+          echo "=== Contents of docs/ ==="
+          ls -laR docs/
+          echo ""
+          echo "=== Checking index.html for CSS/JS links ==="
+          grep -E "(stylesheet|script|assets)" docs/index.html || echo "No CSS/JS links found"
+          echo ""
+          echo "=== Checking if assets folder exists ==="
+          if [ -d "docs/assets" ]; then
+            echo "✅ assets folder exists"
+            ls -la docs/assets/
+          else
+            echo "❌ assets folder NOT found"
+          fi
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
