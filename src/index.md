@@ -10,6 +10,22 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 
 ---
 
+## 🤖 Agent IA de pentest multi-rôles
+
+<div class="card">
+
+Système de 4 agents IA spécialisés (Open WebUI / Ollama, Qwen3-4B) : un chef d'orchestre et 3 agents (terminal, web, code), tous verrouillés par un fichier de périmètre. Infrastructure physique sous Kali Linux, accès distant via Tailscale. [En savoir plus]({{ '/projects/' | url }}#agent-pentest)
+
+</div>
+
+## 🚀 SOSPro, Studio Markdown DSFR, guide OSINT...
+
+<div class="card">
+
+Application web full-stack sécurisée, éditeur Markdown déployé pour ~5 000 agents, guide OSINT légal et éthique, dépannage réseau Ubuntu. [Voir tous les projets]({{ '/projects/' | url }})
+
+</div>
+
 ## 🗜 Étude d'une zip bomb
 
 <div class="card">

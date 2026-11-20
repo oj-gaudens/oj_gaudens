@@ -45,7 +45,7 @@ Les fichiers à personnaliser sont dans `src/` :
 npm run build
 ```
 
-Les fichiers seront dans `_site/`
+Les fichiers seront dans `docs/`
 
 ## 🎨 Personnalisation du Design
 
@@ -95,7 +95,7 @@ git push -u origin main
 
 ```bash
 npm run build
-# Uploadez le contenu de _site/ sur votre hébergeur
+# Uploadez le contenu de docs/ sur votre hébergeur
 ```
 
 ## 📱 Responsive

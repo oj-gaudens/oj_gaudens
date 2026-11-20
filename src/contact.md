@@ -17,7 +17,7 @@ N'hésitez pas à me contacter pour toute opportunité de stage, projet ou simpl
 
 ### Email
 
-**[goumarjulien@gmail.com](mailto:goumarjulien@gmail.com)**
+**[GrayDraX@proton.me](mailto:GrayDraX@proton.me)**
 
 <p style="margin-top: 1rem; color: var(--text-secondary);">
 Je réponds généralement sous 24-48 heures.
@@ -31,11 +31,10 @@ Je réponds généralement sous 24-48 heures.
 
 <div class="card" style="text-align: center;">
 
-**Mantes-la-Jolie, 78200**  
-Île-de-France
+**Île-de-France**
 
 <p style="margin-top: 1rem; color: var(--text-secondary);">
-Disponible pour des opportunités dans la région parisienne et en Île-de-France.
+Disponible pour des opportunités en Île-de-France.
 </p>
 
 </div>
@@ -92,13 +91,13 @@ Disponible pour des opportunités dans la région parisienne et en Île-de-Franc
 <div class="card" style="text-align: center;">
 
 📋 **Mon CV complet**  
-Disponible sur la [page CV](/CV/)
+Disponible sur la [page CV]({{ '/CV/' | url }})
 
 🚀 **Mes projets**  
-Découvrez mes réalisations sur la [page Projets](/projects/)
+Découvrez mes réalisations sur la [page Projets]({{ '/projects/' | url }})
 
 💻 **Mes compétences**  
-Liste détaillée sur la [page Compétences](/skills/)
+Liste détaillée sur la [page Compétences]({{ '/skills/' | url }})
 
 </div>
 
@@ -110,7 +109,7 @@ Liste détaillée sur la [page Compétences](/skills/)
 
 **Période de stage recherchée :**
 
-**Actuellement :** Stage du 19 janvier au 20 février 2026 (recherche en cours)
+**Actuellement :** Stage du 9 novembre au 18 décembre 2026 (recherche en cours)
 
 **Prochaine disponibilité :**
 - Stages ponctuels : périodes scolaires définies
@@ -133,7 +132,7 @@ Liste détaillée sur la [page Compétences](/skills/)
 **Vous avez un projet, une opportunité ou simplement envie d'échanger sur la cybersécurité ?**
 
 <p style="font-size: 1.2rem; margin: 1.5rem 0;">
-<a href="mailto:goumarjulien@gmail.com" style="color: white; font-weight: bold; text-decoration: underline;">
+<a href="mailto:GrayDraX@proton.me" style="color: white; font-weight: bold; text-decoration: underline;">
 Envoyez-moi un email
 </a>
 </p>

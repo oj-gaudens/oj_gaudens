@@ -18,7 +18,7 @@ Formation académique, expérience professionnelle et projets personnels
 ### Bac Pro CIEL – Cybersécurité, Informatique et Réseaux, Électronique
 
 **📍 Lycée privé Saint-Erembert, Saint-Germain-en-Laye**  
-**📅 2025-2026 - Actuellement en Première**
+**📅 2026-2027 - Actuellement en Terminale**
 
 **Programme et compétences développées :**
 - Cybersécurité et protection des systèmes
@@ -54,10 +54,18 @@ Formation académique, expérience professionnelle et projets personnels
 
 <div class="card">
 
-### 🏢 Stage au Ministère de l'Écologie (DNUM)
+### 🏢 Stage au Ministère de l'Écologie (DNUM), janvier - février 2026
 
 **📍 La Défense**  
-**📅 2025 - 6 semaines**  
+**📅 Jan.-fév. 2026**  
+**🎯 Studio Markdown DSFR (Eleventy + CI/CD) déployé pour ~5 000 agents DNUM**
+
+---
+
+### 🏢 Stage au Ministère de l'Écologie (DNUM), 2024 - 2025
+
+**📍 La Défense**  
+**📅 2024 - 2025**  
 **🎯 Stage en infrastructure numérique**
 
 **Missions techniques accomplies :**
@@ -104,6 +112,9 @@ Formation académique, expérience professionnelle et projets personnels
 - Docker pour l'isolation d'environnements
 
 **Réalisations concrètes :**
+- SOSPro : application web full-stack sécurisée (Supabase, JWT, AES-256)
+- Agent IA de pentest multi-rôles (Open WebUI / Ollama)
+- Lab pfSense sous VirtualBox (WAN/LAN/DMZ)
 - Site web pour une pizzeria (HTML, JavaScript, Python)
 - Scripts de sécurité et automatisation
 - Laboratoire virtuel de tests de sécurité
@@ -179,7 +190,7 @@ Formation académique, expérience professionnelle et projets personnels
 
 **Objectifs à court terme (2026)**
 - Obtention du Bac Pro CIEL
-- Stage en entreprise cybersécurité
+- Stage du 9 novembre au 18 décembre 2026
 - Développement de projets personnels
 - Participation à des CTF (Capture The Flag)
 

@@ -12,6 +12,117 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 
 ---
 
+<div id="agent-pentest"></div>
+
+## 🤖 Agent IA de pentest multi-rôles (Open WebUI / Ollama)
+
+<div class="card">
+
+J'ai conçu et déployé un système d'agents IA spécialisés pour l'assistance au pentest, basé sur **Qwen3-4B**, décensuré via **Heretic** ([p-e-w/heretic](https://github.com/p-e-w/heretic) sur GitHub) : un outil qui automatise la suppression de l'alignement de sécurité d'un modèle (« abliteration ») en combinant l'ablation directionnelle (méthode décrite par Arditi et al., 2024) avec un optimiseur de paramètres (TPE, via Optuna) qui tourne sans intervention humaine. Contrairement aux abliterations manuelles classiques, Heretic minimise simultanément le taux de refus du modèle et sa divergence (KL) par rapport au modèle d'origine, ce qui limite la perte de capacités tout en rendant le modèle coopératif pour un usage de test de sécurité **en environnement autorisé**.
+
+Ce modèle tourne en local via **Ollama**, orchestré dans **Open WebUI**. L'architecture repose sur 4 presets du même modèle, chacun avec un rôle distinct :
+
+- **pentest-lead** : chef d'orchestre. Il répartit les tâches entre les autres agents selon la méthodologie OWASP WSTG/ASVS (reconnaissance passive, cartographie, authentification, injections, logique métier), évalue leurs rapports de façon critique plutôt que de les exécuter aveuglément, et produit la synthèse finale (gravité, correctifs).
+- **pentest-terminal** : exécution de commandes réseau/système via SSH sur la cible (reconnaissance, scan).
+- **web-vuln-analyzer** : analyse live du HTML/JS d'une application web (XSS, failles DOM).
+- **code-vuln-hunter** : audit statique de code source multi-langage (SQLi, NoSQLi, etc.).
+
+La communication entre pentest-lead et les 3 agents spécialisés passe par un outil Python dédié (**Agent Orchestrator**) exposant des fonctions de délégation (`dispatch_terminal`, `dispatch_web`, `dispatch_code`), avec journalisation complète de chaque tâche envoyée et de chaque rapport reçu. Toute action active est **verrouillée par un fichier de périmètre** (`scope.json`) définissant la mission autorisée, son niveau d'autorisation et son expiration : aucun outil ne peut agir hors de ce cadre.
+
+### Infrastructure
+
+Le système s'appuie sur deux machines physiques sous **Kali Linux** : une tour principale (GTX 1660 SUPER, qui héberge Ollama et Open WebUI en conteneur Docker) et un ancien PC HP ProBook reconverti en serveur cible, relié à la tour par une liaison RJ45 directe et dédiée (adaptateur USB-Ethernet TP-Link), isolée du réseau domestique, avec partage NAT de la connexion Internet et accès SSH par clé. Un outil complémentaire (`hp_control.py`) permet aux agents de piloter ce second PC de bout en bout : réveil à distance (Wake-on-LAN), exécution de commandes, envoi de fichiers, vérification d'état et extinction.
+
+### Accès à distance
+
+J'ai mis en place un accès complet à la tour : VPN mesh **Tailscale** (WireGuard) reliant la tour et mon smartphone sur un réseau privé chiffré, quel que soit le réseau utilisé, couplé à un serveur VNC (x11vnc) pour piloter le bureau à distance, et un réveil à distance configuré au niveau système (ethtool/NetworkManager) et BIOS, avec une attribution stable des interfaces réseau via des règles **udev** (lien domestique + lien dédié vers le PC HP).
+
+### Et ensuite ?
+
+Ce système à 4 agents est la **première brique** d'un pipeline plus large que je compte développer, en m'inspirant des architectures de Bug Bounty automatisées à grande échelle : reconnaissance OSINT, énumération d'infrastructure, fuzzing web, validation hors-bande des failles aveugles, triage et reporting automatisé. L'objectif est de le faire évoluer vers un pipeline multi-agents couvrant tout le cycle de test (**piste de travail, pas encore réalisée**).
+
+</div>
+
+---
+
+## 🚀 SOSPro : application web full-stack sécurisée
+
+<div class="card">
+
+Projet personnel : un MVP fonctionnel et déployable.
+
+- **Front** : Vanilla JS
+- **Back** : Supabase (PostgreSQL)
+- **Sécurité** : authentification JWT, messagerie chiffrée AES-256, politiques RLS (Row Level Security)
+- **Fonctionnalité** : carte géolocalisée
+
+🔗 [Application en ligne](https://sos-pro-ebon.vercel.app) · [Code source](https://github.com/oj-gaudens/SOSPro)
+
+</div>
+
+---
+
+## 📝 Studio Markdown DSFR (Stage DNUM)
+
+<div class="card">
+
+Éditeur Markdown dans le navigateur pour créer des pages au format du **Système de Design de l'État (DSFR)**. Déployé pour environ **5 000 agents** de la DNUM du Ministère de l'Écologie.
+
+- Composants DSFR (alertes, cartes, tuiles, accordéons, grilles)
+- Aperçu en direct, thèmes clair/sombre, sauvegarde automatique
+- Export HTML / PDF, modèles de pages, diaporamas
+- **Stack** : Eleventy, Nunjucks, Marked.js, CI/CD
+
+🔗 [Démo](https://oj-gaudens.github.io/siteAide/) · [Code source](https://github.com/oj-gaudens/siteAide)
+
+</div>
+
+---
+
+## 🔎 Guide OSINT (cadre légal et éthique)
+
+<div class="card">
+
+Guide en français, pas à pas, sur le renseignement d'origine sources ouvertes : méthode en 5 étapes (objectif, collecte, traitement, analyse, rapport), **cadre légal français** et checklist éthique, prise en main d'outils (Sherlock, Holehe, exiftool, Overpass Turbo, Maltego...), Google dorks, analyse EXIF, géolocalisation visuelle, études de cas, exercice d'**auto-audit de sa propre exposition** et conseils de protection contre le doxing.
+
+🔗 [Code source](https://github.com/oj-gaudens/osint)
+
+</div>
+
+---
+
+## 🛠️ Ubuntu Network Rescue
+
+<div class="card">
+
+Guide de dépannage réseau en ligne de commande pour Ubuntu (filaire et Wi-Fi), avec un script Bash `fix-network.sh` qui automatise les étapes principales : diagnostic, redémarrage de NetworkManager, DHCP, DNS, pilotes, Netplan. Testé sur Ubuntu 20.04, 22.04 et 24.04.
+
+**Technos** : Bash, NetworkManager (`nmcli`), systemd, iproute2, Netplan.
+
+🔗 [Code source](https://github.com/oj-gaudens/-Ubuntu-Network-Rescue)
+
+</div>
+
+---
+
+## ☕ AntiVeille
+
+<div class="card">
+
+Petit utilitaire multiplateforme (Windows 11, Linux, macOS) qui empêche l'ordinateur de se mettre en veille pendant une durée choisie (`2h`, `1h24min`, `45min`...), puis rend la main au système. Rien à installer : un double-clic ou un script suffit.
+
+- **Windows** : `SetThreadExecutionState` + léger mouvement de souris
+- **Linux** : `systemd-inhibit`, `gnome-session-inhibit`, `xset`/`xdotool` sous X11
+- **macOS** : `caffeinate`
+
+**Technos** : Bash, batch Windows, API système. Licence MIT.
+
+🔗 [Code source](https://github.com/oj-gaudens/AntiVeille)
+
+</div>
+
+---
+
 ## 🗜 Étude d'une zip bomb
 
 <div class="card">
@@ -240,5 +351,5 @@ Ces projets nourrissent mon ambition de devenir **pentester** ou **ingénieur s�
 ---
 
 <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">
-🎯 <strong>Prochaines étapes :</strong> Approfondir mes connaissances en pentesting et obtenir des certifications en cybersécurité.
+🎯 <strong>Prochaines étapes :</strong> développer le pipeline multi-agents, approfondir le pentesting et obtenir des certifications en cybersécurité.
 </p>

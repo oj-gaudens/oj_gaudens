@@ -114,7 +114,10 @@ Linux • Réseaux • Python • Pentesting • Sécurité Web
 
 - **Docker** - Conteneurisation d'applications
 - **Proxmox** - Virtualisation de serveurs (expérience en stage)
-- **Machines virtuelles** - Configuration et gestion
+- **Machines virtuelles** - Configuration et gestion (VirtualBox)
+- **pfSense** - Firewall et segmentation WAN/LAN/DMZ
+- **Tailscale / WireGuard** - VPN mesh pour l'accès à distance
+- **Ollama / Open WebUI** - Agents IA locaux orchestrés
 
 **Applications pratiques**
 - Environnements de test isolés

@@ -56,6 +56,75 @@ Tous mes projets sont réalisés dans un cadre <strong>pédagogique, contrôlé 
 Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes de sécurité.
 </p>
 <hr>
+<div id="agent-pentest"></div>
+<h2>🤖 Agent IA de pentest multi-rôles (Open WebUI / Ollama)</h2>
+<div class="card">
+<p>J'ai conçu et déployé un système d'agents IA spécialisés pour l'assistance au pentest, basé sur <strong>Qwen3-4B</strong>, décensuré via <strong>Heretic</strong> (<a href="https://github.com/p-e-w/heretic">p-e-w/heretic</a> sur GitHub) : un outil qui automatise la suppression de l'alignement de sécurité d'un modèle (« abliteration ») en combinant l'ablation directionnelle (méthode décrite par Arditi et al., 2024) avec un optimiseur de paramètres (TPE, via Optuna) qui tourne sans intervention humaine. Contrairement aux abliterations manuelles classiques, Heretic minimise simultanément le taux de refus du modèle et sa divergence (KL) par rapport au modèle d'origine, ce qui limite la perte de capacités tout en rendant le modèle coopératif pour un usage de test de sécurité <strong>en environnement autorisé</strong>.</p>
+<p>Ce modèle tourne en local via <strong>Ollama</strong>, orchestré dans <strong>Open WebUI</strong>. L'architecture repose sur 4 presets du même modèle, chacun avec un rôle distinct :</p>
+<ul>
+<li><strong>pentest-lead</strong> : chef d'orchestre. Il répartit les tâches entre les autres agents selon la méthodologie OWASP WSTG/ASVS (reconnaissance passive, cartographie, authentification, injections, logique métier), évalue leurs rapports de façon critique plutôt que de les exécuter aveuglément, et produit la synthèse finale (gravité, correctifs).</li>
+<li><strong>pentest-terminal</strong> : exécution de commandes réseau/système via SSH sur la cible (reconnaissance, scan).</li>
+<li><strong>web-vuln-analyzer</strong> : analyse live du HTML/JS d'une application web (XSS, failles DOM).</li>
+<li><strong>code-vuln-hunter</strong> : audit statique de code source multi-langage (SQLi, NoSQLi, etc.).</li>
+</ul>
+<p>La communication entre pentest-lead et les 3 agents spécialisés passe par un outil Python dédié (<strong>Agent Orchestrator</strong>) exposant des fonctions de délégation (<code>dispatch_terminal</code>, <code>dispatch_web</code>, <code>dispatch_code</code>), avec journalisation complète de chaque tâche envoyée et de chaque rapport reçu. Toute action active est <strong>verrouillée par un fichier de périmètre</strong> (<code>scope.json</code>) définissant la mission autorisée, son niveau d'autorisation et son expiration : aucun outil ne peut agir hors de ce cadre.</p>
+<h3>Infrastructure</h3>
+<p>Le système s'appuie sur deux machines physiques sous <strong>Kali Linux</strong> : une tour principale (GTX 1660 SUPER, qui héberge Ollama et Open WebUI en conteneur Docker) et un ancien PC HP ProBook reconverti en serveur cible, relié à la tour par une liaison RJ45 directe et dédiée (adaptateur USB-Ethernet TP-Link), isolée du réseau domestique, avec partage NAT de la connexion Internet et accès SSH par clé. Un outil complémentaire (<code>hp_control.py</code>) permet aux agents de piloter ce second PC de bout en bout : réveil à distance (Wake-on-LAN), exécution de commandes, envoi de fichiers, vérification d'état et extinction.</p>
+<h3>Accès à distance</h3>
+<p>J'ai mis en place un accès complet à la tour : VPN mesh <strong>Tailscale</strong> (WireGuard) reliant la tour et mon smartphone sur un réseau privé chiffré, quel que soit le réseau utilisé, couplé à un serveur VNC (x11vnc) pour piloter le bureau à distance, et un réveil à distance configuré au niveau système (ethtool/NetworkManager) et BIOS, avec une attribution stable des interfaces réseau via des règles <strong>udev</strong> (lien domestique + lien dédié vers le PC HP).</p>
+<h3>Et ensuite ?</h3>
+<p>Ce système à 4 agents est la <strong>première brique</strong> d'un pipeline plus large que je compte développer, en m'inspirant des architectures de Bug Bounty automatisées à grande échelle : reconnaissance OSINT, énumération d'infrastructure, fuzzing web, validation hors-bande des failles aveugles, triage et reporting automatisé. L'objectif est de le faire évoluer vers un pipeline multi-agents couvrant tout le cycle de test (<strong>piste de travail, pas encore réalisée</strong>).</p>
+</div>
+<hr>
+<h2>🚀 SOSPro : application web full-stack sécurisée</h2>
+<div class="card">
+<p>Projet personnel : un MVP fonctionnel et déployable.</p>
+<ul>
+<li><strong>Front</strong> : Vanilla JS</li>
+<li><strong>Back</strong> : Supabase (PostgreSQL)</li>
+<li><strong>Sécurité</strong> : authentification JWT, messagerie chiffrée AES-256, politiques RLS (Row Level Security)</li>
+<li><strong>Fonctionnalité</strong> : carte géolocalisée</li>
+</ul>
+<p>🔗 <a href="https://sos-pro-ebon.vercel.app">Application en ligne</a> · <a href="https://github.com/oj-gaudens/SOSPro">Code source</a></p>
+</div>
+<hr>
+<h2>📝 Studio Markdown DSFR (Stage DNUM)</h2>
+<div class="card">
+<p>Éditeur Markdown dans le navigateur pour créer des pages au format du <strong>Système de Design de l'État (DSFR)</strong>. Déployé pour environ <strong>5 000 agents</strong> de la DNUM du Ministère de l'Écologie.</p>
+<ul>
+<li>Composants DSFR (alertes, cartes, tuiles, accordéons, grilles)</li>
+<li>Aperçu en direct, thèmes clair/sombre, sauvegarde automatique</li>
+<li>Export HTML / PDF, modèles de pages, diaporamas</li>
+<li><strong>Stack</strong> : Eleventy, Nunjucks, Marked.js, CI/CD</li>
+</ul>
+<p>🔗 <a href="https://oj-gaudens.github.io/siteAide/">Démo</a> · <a href="https://github.com/oj-gaudens/siteAide">Code source</a></p>
+</div>
+<hr>
+<h2>🔎 Guide OSINT (cadre légal et éthique)</h2>
+<div class="card">
+<p>Guide en français, pas à pas, sur le renseignement d'origine sources ouvertes : méthode en 5 étapes (objectif, collecte, traitement, analyse, rapport), <strong>cadre légal français</strong> et checklist éthique, prise en main d'outils (Sherlock, Holehe, exiftool, Overpass Turbo, Maltego...), Google dorks, analyse EXIF, géolocalisation visuelle, études de cas, exercice d'<strong>auto-audit de sa propre exposition</strong> et conseils de protection contre le doxing.</p>
+<p>🔗 <a href="https://github.com/oj-gaudens/osint">Code source</a></p>
+</div>
+<hr>
+<h2>🛠️ Ubuntu Network Rescue</h2>
+<div class="card">
+<p>Guide de dépannage réseau en ligne de commande pour Ubuntu (filaire et Wi-Fi), avec un script Bash <code>fix-network.sh</code> qui automatise les étapes principales : diagnostic, redémarrage de NetworkManager, DHCP, DNS, pilotes, Netplan. Testé sur Ubuntu 20.04, 22.04 et 24.04.</p>
+<p><strong>Technos</strong> : Bash, NetworkManager (<code>nmcli</code>), systemd, iproute2, Netplan.</p>
+<p>🔗 <a href="https://github.com/oj-gaudens/-Ubuntu-Network-Rescue">Code source</a></p>
+</div>
+<hr>
+<h2>☕ AntiVeille</h2>
+<div class="card">
+<p>Petit utilitaire multiplateforme (Windows 11, Linux, macOS) qui empêche l'ordinateur de se mettre en veille pendant une durée choisie (<code>2h</code>, <code>1h24min</code>, <code>45min</code>...), puis rend la main au système. Rien à installer : un double-clic ou un script suffit.</p>
+<ul>
+<li><strong>Windows</strong> : <code>SetThreadExecutionState</code> + léger mouvement de souris</li>
+<li><strong>Linux</strong> : <code>systemd-inhibit</code>, <code>gnome-session-inhibit</code>, <code>xset</code>/<code>xdotool</code> sous X11</li>
+<li><strong>macOS</strong> : <code>caffeinate</code></li>
+</ul>
+<p><strong>Technos</strong> : Bash, batch Windows, API système. Licence MIT.</p>
+<p>🔗 <a href="https://github.com/oj-gaudens/AntiVeille">Code source</a></p>
+</div>
+<hr>
 <h2>🗜 Étude d'une zip bomb</h2>
 <div class="card">
 <h3>Objectifs du projet</h3>
@@ -234,7 +303,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 </div>
 <hr>
 <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">
-🎯 <strong>Prochaines étapes :</strong> Approfondir mes connaissances en pentesting et obtenir des certifications en cybersécurité.
+🎯 <strong>Prochaines étapes :</strong> développer le pipeline multi-agents, approfondir le pentesting et obtenir des certifications en cybersécurité.
 </p>
 
   </main>
