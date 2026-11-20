@@ -1,0 +1,13 @@
+IMPORTANT : Remplacez ce fichier par votre vraie photo !
+
+Instructions :
+1. Prenez une photo professionnelle de vous
+2. Nommez-la "photo.jpg"
+3. Remplacez ce fichier dans : src/assets/images/photo.jpg
+
+Dimensions recommandées :
+- Taille : 500x500 pixels (carré)
+- Format : JPG ou PNG
+- Poids : moins de 500 Ko
+
+La photo apparaîtra dans la bulle de navigation en haut à gauche.
