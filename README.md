@@ -23,7 +23,7 @@ Le site sera accessible sur `http://localhost:8080`
 npm run build
 ```
 
-Les fichiers seront générés dans `docs/`
+Les fichiers seront générés dans `_site/`
 
 ## Structure
 

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projets | Oumar-Julien Gaudens</title>
+  <meta name="description" content="Portfolio d'Oumar-Julien Gaudens - Étudiant en Cybersécurité, Réseaux et Développement" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/oj_gaudens/assets/css/main.css">
+</head>
+<body>
+  
+  <!-- Navigation avec photo en bulle -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="/oj_gaudens/" class="nav-photo-link">
+        <div class="nav-photo-bubble">
+          <img src="/oj_gaudens/assets/images/photo1.png" alt="Oumar-Julien Gaudens" class="nav-photo">
+        </div>
+      </a>
+      
+      <div class="nav-links">
+        <a href="/oj_gaudens/" class="nav-link">Accueil</a>
+        <a href="/oj_gaudens/CV/" class="nav-link">CV</a>
+        <a href="/oj_gaudens/about/" class="nav-link">À propos</a>
+        <a href="/oj_gaudens/projects/" class="nav-link">Projets</a>
+        <a href="/oj_gaudens/experience/" class="nav-link">Parcours</a>
+        <a href="/oj_gaudens/skills/" class="nav-link">Compétences</a>
+        <a href="/oj_gaudens/contact/" class="nav-link">Contact</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Changer de thème">
+          <span class="theme-icon">◐</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Terminal animation -->
+  <div class="terminal-wrapper">
+    <div class="terminal" id="terminal"></div>
+  </div>
+  
+  <!-- Contenu principal -->
+  <main class="main-content">
+    <h1>Mes Projets Cybersécurité &amp; Tech</h1>
+<p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">
+Tous mes projets sont réalisés dans un cadre <strong>pédagogique, contrôlé et légal</strong>.<br>
+Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes de sécurité.
+</p>
+<hr>
+<div id="agent-pentest"></div>
+<h2>Agent IA de pentest multi-rôles (Open WebUI / Ollama)</h2>
+<div class="card">
+<p>J'ai conçu et déployé un système d'agents IA spécialisés pour l'assistance au pentest, basé sur <strong>Qwen3-4B</strong>, décensuré via <strong>Heretic</strong> (<a href="https://github.com/p-e-w/heretic">p-e-w/heretic</a> sur GitHub) : un outil qui automatise la suppression de l'alignement de sécurité d'un modèle (« abliteration ») en combinant l'ablation directionnelle (méthode décrite par Arditi et al., 2024) avec un optimiseur de paramètres (TPE, via Optuna) qui tourne sans intervention humaine. Contrairement aux abliterations manuelles classiques, Heretic minimise simultanément le taux de refus du modèle et sa divergence (KL) par rapport au modèle d'origine, ce qui limite la perte de capacités tout en rendant le modèle coopératif pour un usage de test de sécurité <strong>en environnement autorisé</strong>.</p>
+<p>Ce modèle tourne en local via <strong>Ollama</strong>, orchestré dans <strong>Open WebUI</strong>. L'architecture repose sur 4 presets du même modèle, chacun avec un rôle distinct :</p>
+<ul>
+<li><strong>pentest-lead</strong> : chef d'orchestre. Il répartit les tâches entre les autres agents selon la méthodologie OWASP WSTG/ASVS (reconnaissance passive, cartographie, authentification, injections, logique métier), évalue leurs rapports de façon critique plutôt que de les exécuter aveuglément, et produit la synthèse finale (gravité, correctifs).</li>
+<li><strong>pentest-terminal</strong> : exécution de commandes réseau/système via SSH sur la cible (reconnaissance, scan).</li>
+<li><strong>web-vuln-analyzer</strong> : analyse live du HTML/JS d'une application web (XSS, failles DOM).</li>
+<li><strong>code-vuln-hunter</strong> : audit statique de code source multi-langage (SQLi, NoSQLi, etc.).</li>
+</ul>
+<p>La communication entre pentest-lead et les 3 agents spécialisés passe par un outil Python dédié (<strong>Agent Orchestrator</strong>) exposant des fonctions de délégation (<code>dispatch_terminal</code>, <code>dispatch_web</code>, <code>dispatch_code</code>), avec journalisation complète de chaque tâche envoyée et de chaque rapport reçu. Toute action active est <strong>verrouillée par un fichier de périmètre</strong> (<code>scope.json</code>) définissant la mission autorisée, son niveau d'autorisation et son expiration : aucun outil ne peut agir hors de ce cadre.</p>
+<h3>Infrastructure</h3>
+<p>Le système s'appuie sur deux machines physiques sous <strong>Kali Linux</strong> : une tour principale (GTX 1660 SUPER, qui héberge Ollama et Open WebUI en conteneur Docker) et un ancien PC HP ProBook reconverti en serveur cible, relié à la tour par une liaison RJ45 directe et dédiée (adaptateur USB-Ethernet TP-Link), isolée du réseau domestique, avec partage NAT de la connexion Internet et accès SSH par clé. Un outil complémentaire (<code>hp_control.py</code>) permet aux agents de piloter ce second PC de bout en bout : réveil à distance (Wake-on-LAN), exécution de commandes, envoi de fichiers, vérification d'état et extinction.</p>
+<h3>Accès à distance</h3>
+<p>J'ai mis en place un accès complet à la tour : VPN mesh <strong>Tailscale</strong> (WireGuard) reliant la tour et mon smartphone sur un réseau privé chiffré, quel que soit le réseau utilisé, couplé à un serveur VNC (x11vnc) pour piloter le bureau à distance, et un réveil à distance configuré au niveau système (ethtool/NetworkManager) et BIOS, avec une attribution stable des interfaces réseau via des règles <strong>udev</strong> (lien domestique + lien dédié vers le PC HP).</p>
+<h3>Et ensuite ?</h3>
+<p>Ce système à 4 agents est la <strong>première brique</strong> d'un pipeline plus large que je compte développer, en m'inspirant des architectures de Bug Bounty automatisées à grande échelle : reconnaissance OSINT, énumération d'infrastructure, fuzzing web, validation hors-bande des failles aveugles, triage et reporting automatisé. L'objectif est de le faire évoluer vers un pipeline multi-agents couvrant tout le cycle de test (<strong>piste de travail, pas encore réalisée</strong>).</p>
+</div>
+<hr>
+<h2>SOSPro : application web full-stack sécurisée</h2>
+<div class="card">
+<p>Projet personnel : un MVP fonctionnel et déployable.</p>
+<ul>
+<li><strong>Front</strong> : Vanilla JS</li>
+<li><strong>Back</strong> : Supabase (PostgreSQL)</li>
+<li><strong>Sécurité</strong> : authentification JWT, messagerie chiffrée AES-256, politiques RLS (Row Level Security)</li>
+<li><strong>Fonctionnalité</strong> : carte géolocalisée</li>
+</ul>
+<p><a href="https://sos-pro-ebon.vercel.app">Application en ligne</a> · <a href="https://github.com/oj-gaudens/SOSPro">Code source</a></p>
+</div>
+<hr>
+<h2>Studio Markdown DSFR (Stage DNUM)</h2>
+<div class="card">
+<p>Éditeur Markdown dans le navigateur pour créer des pages au format du <strong>Système de Design de l'État (DSFR)</strong>. Déployé pour environ <strong>5 000 agents</strong> de la DNUM du Ministère de l'Écologie.</p>
+<ul>
+<li>Composants DSFR (alertes, cartes, tuiles, accordéons, grilles)</li>
+<li>Aperçu en direct, thèmes clair/sombre, sauvegarde automatique</li>
+<li>Export HTML / PDF, modèles de pages, diaporamas</li>
+<li><strong>Stack</strong> : Eleventy, Nunjucks, Marked.js, CI/CD</li>
+</ul>
+<p><a href="https://oj-gaudens.github.io/siteAide/">Démo</a> · <a href="https://github.com/oj-gaudens/siteAide">Code source</a></p>
+</div>
+<hr>
+<h2>Guide OSINT (cadre légal et éthique)</h2>
+<div class="card">
+<p>Guide en français, pas à pas, sur le renseignement d'origine sources ouvertes : méthode en 5 étapes (objectif, collecte, traitement, analyse, rapport), <strong>cadre légal français</strong> et checklist éthique, prise en main d'outils (Sherlock, Holehe, exiftool, Overpass Turbo, Maltego...), Google dorks, analyse EXIF, géolocalisation visuelle, études de cas, exercice d'<strong>auto-audit de sa propre exposition</strong> et conseils de protection contre le doxing.</p>
+<p><a href="https://github.com/oj-gaudens/osint">Code source</a></p>
+</div>
+<hr>
+<h2>Ubuntu Network Rescue</h2>
+<div class="card">
+<p>Guide de dépannage réseau en ligne de commande pour Ubuntu (filaire et Wi-Fi), avec un script Bash <code>fix-network.sh</code> qui automatise les étapes principales : diagnostic, redémarrage de NetworkManager, DHCP, DNS, pilotes, Netplan. Testé sur Ubuntu 20.04, 22.04 et 24.04.</p>
+<p><strong>Technos</strong> : Bash, NetworkManager (<code>nmcli</code>), systemd, iproute2, Netplan.</p>
+<p><a href="https://github.com/oj-gaudens/-Ubuntu-Network-Rescue">Code source</a></p>
+</div>
+<hr>
+<h2>AntiVeille</h2>
+<div class="card">
+<p>Petit utilitaire multiplateforme (Windows 11, Linux, macOS) qui empêche l'ordinateur de se mettre en veille pendant une durée choisie (<code>2h</code>, <code>1h24min</code>, <code>45min</code>...), puis rend la main au système. Rien à installer : un double-clic ou un script suffit.</p>
+<ul>
+<li><strong>Windows</strong> : <code>SetThreadExecutionState</code> + léger mouvement de souris</li>
+<li><strong>Linux</strong> : <code>systemd-inhibit</code>, <code>gnome-session-inhibit</code>, <code>xset</code>/<code>xdotool</code> sous X11</li>
+<li><strong>macOS</strong> : <code>caffeinate</code></li>
+</ul>
+<p><strong>Technos</strong> : Bash, batch Windows, API système. Licence MIT.</p>
+<p><a href="https://github.com/oj-gaudens/AntiVeille">Code source</a></p>
+</div>
+<hr>
+<h2>Étude d'une zip bomb</h2>
+<div class="card">
+<h3>Objectifs du projet</h3>
+<p>J'ai étudié le principe d'une zip bomb pour comprendre les mécanismes de déni de service basés sur la décompression.</p>
+<h3>Ce que j'ai appris</h3>
+<ul>
+<li><strong>Surcharge de ressources</strong> : Comment un petit fichier peut consommer énormément de mémoire</li>
+<li><strong>Risques pour les systèmes</strong> : Impact potentiel sur les serveurs et applications</li>
+<li><strong>Limites de décompression</strong> : Importance des protections et limitations</li>
+</ul>
+<h3>Résultat</h3>
+<p>Cela m'a permis de comprendre comment des fichiers apparemment inoffensifs peuvent provoquer un déni de service et comment s'en protéger.</p>
+</div>
+<hr>
+<h2>Étude des attaques par force brute (Hydra)</h2>
+<div class="card">
+<h3>Contexte d'apprentissage</h3>
+<p>Utilisation d'Hydra en environnement de laboratoire contrôlé pour comprendre les attaques par dictionnaire.</p>
+<h3>Connaissances acquises</h3>
+<ul>
+<li><strong>Fonctionnement des attaques</strong> : Processus automatisé de test de mots de passe</li>
+<li><strong>Importance des mots de passe robustes</strong> : Complexité, longueur, caractères spéciaux</li>
+<li><strong>Mécanismes de protection</strong> : Rate limiting, verrouillage de compte, captcha</li>
+</ul>
+<h3>Application pratique</h3>
+<p>Cette expérience m'a permis de comprendre concrètement pourquoi la sécurité des mots de passe est cruciale.</p>
+</div>
+<hr>
+<h2>Analyse réseau avec Wireshark</h2>
+<div class="card">
+<h3>Découverte de l'analyse réseau</h3>
+<p>Wireshark m'a ouvert les portes de l'analyse de trafic réseau en temps réel.</p>
+<h3>Compétences développées</h3>
+<ul>
+<li><strong>Capture de paquets</strong> : Interception et analyse du trafic réseau</li>
+<li><strong>Protocoles TCP/IP</strong> : Compréhension approfondie des communications</li>
+<li><strong>Analyse HTTP et DNS</strong> : Observation des requêtes et réponses</li>
+<li><strong>Visualisation</strong> : Représentation graphique des flux de communication</li>
+</ul>
+<h3>Bénéfice</h3>
+<p>Cette pratique me permet de visualiser concrètement ce qui se passe &quot;sous le capot&quot; d'Internet.</p>
+</div>
+<hr>
+<h2>Sécurité web et vulnérabilités</h2>
+<div class="card">
+<h3>Vulnérabilités étudiées</h3>
+<ul>
+<li><strong>XSS (Cross-Site Scripting)</strong> : Injection de scripts malveillants</li>
+<li><strong>Injections SQL</strong> : Manipulation de bases de données</li>
+<li><strong>NoSQL injections</strong> : Exploitation de bases NoSQL</li>
+</ul>
+<h3>Objectifs pédagogiques</h3>
+<ul>
+<li>Comprendre <strong>comment fonctionnent</strong> ces attaques</li>
+<li>Mesurer les <strong>dégâts potentiels</strong> sur les systèmes</li>
+<li>Apprendre <strong>comment les développeurs</strong> peuvent s'en protéger</li>
+</ul>
+<h3>Vision</h3>
+<p>Cette formation me prépare à devenir un développeur conscient des enjeux de sécurité.</p>
+</div>
+<hr>
+<h2>Étude approfondie des injections SQL</h2>
+<div class="card">
+<h3>Vue d'ensemble</h3>
+<p>Les injections SQL (SQLi) représentent l'une des vulnérabilités les plus critiques dans la sécurité web. J'ai étudié ces failles en profondeur pour comprendre leurs mécanismes et apprendre à m'en protéger en tant que futur développeur.</p>
+<h3>Classification des failles (du plus simple au plus complexe)</h3>
+<h4>1. Injection de base (Simple String Injection)</h4>
+<p><strong>Niveau de complexité : Faible</strong></p>
+<p>La plus fondamentale des failles SQL. L'attaquant insère directement du code SQL dans une entrée utilisateur non sécurisée.</p>
+<ul>
+<li><strong>Principe</strong> : Modification d'une requête pour altérer son comportement</li>
+<li><strong>Exemple type</strong> : Sur <code>SELECT * FROM users WHERE username = 'user_input'</code>, l'injection <code>' OR '1'='1</code> permet de contourner l'authentification</li>
+<li><strong>Apprentissage</strong> : Nécessite peu de connaissances techniques mais illustre parfaitement pourquoi la validation des entrées est cruciale</li>
+</ul>
+<h4>2. Injection UNION-based</h4>
+<p><strong>Niveau de complexité : Moyen</strong></p>
+<p>Utilisation de l'opérateur UNION pour combiner des requêtes et extraire des données supplémentaires.</p>
+<ul>
+<li><strong>Principe</strong> : Fusion de la requête originale avec une requête malveillante</li>
+<li><strong>Exemple</strong> : Sur <code>SELECT username FROM users WHERE id = 'user_input'</code>, l'injection <code>1 UNION SELECT username, password FROM admin_table</code> expose des données sensibles</li>
+<li><strong>Prérequis</strong> : Compréhension des schémas de base de données et correspondance des structures de colonnes</li>
+</ul>
+<h4>3. Injection Error-based</h4>
+<p><strong>Niveau de complexité : Moyen</strong></p>
+<p>Exploitation des messages d'erreur SQL pour extraire des informations sur la structure de la base de données.</p>
+<ul>
+<li><strong>Principe</strong> : Provoquer délibérément des erreurs pour que le serveur révèle des détails sensibles</li>
+<li><strong>Exemple</strong> : <code>' AND 1=CONVERT(int, (SELECT password FROM users))--</code> génère une erreur qui peut exposer des données</li>
+<li><strong>Conditions</strong> : Dépend de la configuration du serveur pour afficher les erreurs</li>
+</ul>
+<h4>4. Injection Blind (Boolean-based)</h4>
+<p><strong>Niveau de complexité : Élevé</strong></p>
+<p>Aucune donnée n'est retournée directement. L'attaquant infère les informations en posant des questions vraies ou fausses.</p>
+<ul>
+<li><strong>Principe</strong> : Extraction d'informations bit par bit via des conditions logiques</li>
+<li><strong>Exemple</strong> : <code>AND (SELECT COUNT(*) FROM secret_table) &gt; 5</code> permet de déterminer l'existence d'une table</li>
+<li><strong>Méthode</strong> : Nécessite des tests itératifs et souvent des scripts automatisés</li>
+</ul>
+<h4>5. Injection Blind (Time-based)</h4>
+<p><strong>Niveau de complexité : Très élevé</strong></p>
+<p>Variante utilisant des fonctions de délai pour mesurer le temps de réponse et déduire si une condition est vraie.</p>
+<ul>
+<li><strong>Principe</strong> : Mesure du temps de réponse via des fonctions comme SLEEP (MySQL)</li>
+<li><strong>Exemple</strong> : <code>AND IF(1=1, SLEEP(5), 0)</code> - un délai de 5 secondes confirme que la condition est vraie</li>
+<li><strong>Contraintes</strong> : Attaques lentes, répétées, sensibles à la latence réseau</li>
+</ul>
+<h4>6. Injection Out-of-band</h4>
+<p><strong>Niveau de complexité : Très élevé</strong></p>
+<p>Forcer la base de données à envoyer des données via un canal externe (DNS, email) quand les canaux normaux sont bloqués.</p>
+<ul>
+<li><strong>Principe</strong> : Exfiltration de données via des protocoles alternatifs</li>
+<li><strong>Exemple</strong> : Utilisation de <code>LOAD_FILE</code> ou <code>xp_dirtree</code> pour extraire vers un serveur contrôlé par l'attaquant</li>
+<li><strong>Prérequis</strong> : Contrôle sur des serveurs externes et configurations réseau spécifiques</li>
+</ul>
+<h4>7. Injection Stacked Queries</h4>
+<p><strong>Niveau de complexité : Très élevé</strong></p>
+<p>Enchaînement de plusieurs requêtes dans une seule injection pour exécuter des commandes multiples.</p>
+<ul>
+<li><strong>Principe</strong> : Exécution séquentielle de commandes SQL distinctes</li>
+<li><strong>Exemple</strong> : <code>SELECT * FROM users; DROP TABLE secrets;</code> exécute les deux instructions</li>
+<li><strong>Limitation</strong> : Dépend fortement de si le backend autorise l'exécution multiple</li>
+</ul>
+<h4>8. Injection Second-order</h4>
+<p><strong>Niveau de complexité : Extrêmement élevé</strong></p>
+<p>La plus sophistiquée : l'injection n'est pas immédiate mais se produit via des données stockées réutilisées ultérieurement.</p>
+<ul>
+<li><strong>Principe</strong> : Injection différée via des données persistées qui sont réutilisées dans d'autres requêtes</li>
+<li><strong>Exemple</strong> : Une chaîne malveillante insérée dans un profil utilisateur, puis exploitée lors d'une requête admin</li>
+<li><strong>Exigences</strong> : Planification à long terme, compréhension approfondie des flux applicatifs</li>
+</ul>
+<h3>Protections étudiées</h3>
+<p>Dans le cadre de mon apprentissage, j'ai également étudié les contre-mesures essentielles :</p>
+<ul>
+<li><strong>Prepared Statements</strong> : Séparation du code SQL et des données</li>
+<li><strong>Échappement des entrées</strong> : Neutralisation des caractères spéciaux</li>
+<li><strong>Validation stricte</strong> : Vérification des types et formats d'entrée</li>
+<li><strong>Principe du moindre privilège</strong> : Limitation des droits des comptes de base de données</li>
+<li><strong>Web Application Firewalls (WAF)</strong> : Détection et blocage des tentatives d'injection</li>
+</ul>
+<h3>Impact sur ma formation</h3>
+<p>Cette étude approfondie des injections SQL me permet de :</p>
+<ul>
+<li>Comprendre les vulnérabilités du point de vue de l'attaquant</li>
+<li>Développer avec une mentalité &quot;security-first&quot;</li>
+<li>Identifier et corriger les failles potentielles dans mon propre code</li>
+<li>Me préparer aux certifications en cybersécurité</li>
+</ul>
+</div>
+<hr>
+<h2>Développement de scripts Python</h2>
+<div class="card">
+<h3>Projets réalisés</h3>
+<p><strong>Scripts de cryptographie</strong></p>
+<ul>
+<li>Algorithmes de chiffrement/déchiffrement</li>
+<li>Implémentation de méthodes classiques (César, Vigenère, etc.)</li>
+</ul>
+<p><strong>Simulations d'attaques</strong></p>
+<ul>
+<li>Scripts pédagogiques de force brute</li>
+<li>Analyse de mots de passe faibles</li>
+</ul>
+<p><strong>Scanner de ports TCP</strong></p>
+<ul>
+<li>Inspiration du fonctionnement de Nmap</li>
+<li>Détection de services actifs sur un réseau</li>
+</ul>
+<h3>Compétences acquises</h3>
+<ul>
+<li><strong>Algorithmique</strong> : Logique de programmation et optimisation</li>
+<li><strong>Réseau</strong> : Manipulation de sockets et protocoles</li>
+<li><strong>Sécurité</strong> : Compréhension pratique des outils de pentesting</li>
+</ul>
+<h3>Objectif professionnel</h3>
+<p>Ces projets nourrissent mon ambition de devenir <strong>pentester</strong> ou <strong>ingénieur sécurité</strong>.</p>
+</div>
+<hr>
+<p style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">
+ <strong>Prochaines étapes :</strong> développer le pipeline multi-agents, approfondir le pentesting et obtenir des certifications en cybersécurité.
+</p>
+
+  </main>
+  
+  <!-- Footer -->
+  <footer class="main-footer">
+    <p>&copy; 2026 Oumar-Julien Gaudens • Portfolio Cybersécurité & Tech</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="/oj_gaudens/assets/js/theme.js"></script>
+</body>
+</html>
