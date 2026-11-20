@@ -3,13 +3,13 @@ https://oj-gaudens.github.io/oj_gaudens/
 
 Portfolio professionnel en Eleventy/Markdown avec design moderne.
 
-## 🚀 Installation
+## Installation
 
 ```bash
 npm install
 ```
 
-## 💻 Développement
+## Développement
 
 ```bash
 npm run dev
@@ -17,7 +17,7 @@ npm run dev
 
 Le site sera accessible sur `http://localhost:8080`
 
-## 🏗️ Build Production
+## Build Production
 
 ```bash
 npm run build
@@ -25,7 +25,7 @@ npm run build
 
 Les fichiers seront générés dans `docs/`
 
-## 📁 Structure
+## Structure
 
 ```
 src/
@@ -47,16 +47,16 @@ src/
 └── contact.md           # Contact
 ```
 
-## 📝 Personnalisation
+## Personnalisation
 
 1. Remplacez `src/assets/images/photo.jpg` par votre photo
 2. Modifiez les fichiers `.md` dans `src/` pour votre contenu
 3. Les couleurs et thèmes sont dans `src/assets/css/main.css`
 
-## 🌐 Déploiement GitHub Pages
+## Déploiement GitHub Pages
 
 Le site est configuré pour être déployé sur: `https://oj-gaudens.github.io/oj.gaudens/`
 
-## 📱 Responsive
+## Responsive
 
 Le site est entièrement responsive et s'adapte aux mobiles, tablettes et desktop.

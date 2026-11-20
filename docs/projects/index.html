@@ -33,7 +33,7 @@
         <a href="/oj_gaudens/skills/" class="nav-link">Compétences</a>
         <a href="/oj_gaudens/contact/" class="nav-link">Contact</a>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Changer de thème">
-          <span class="theme-icon">🌙</span>
+          <span class="theme-icon">◐</span>
         </button>
       </div>
     </div>
@@ -53,7 +53,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 </p>
 <hr>
 <div id="agent-pentest"></div>
-<h2>🤖 Agent IA de pentest multi-rôles (Open WebUI / Ollama)</h2>
+<h2>Agent IA de pentest multi-rôles (Open WebUI / Ollama)</h2>
 <div class="card">
 <p>J'ai conçu et déployé un système d'agents IA spécialisés pour l'assistance au pentest, basé sur <strong>Qwen3-4B</strong>, décensuré via <strong>Heretic</strong> (<a href="https://github.com/p-e-w/heretic">p-e-w/heretic</a> sur GitHub) : un outil qui automatise la suppression de l'alignement de sécurité d'un modèle (« abliteration ») en combinant l'ablation directionnelle (méthode décrite par Arditi et al., 2024) avec un optimiseur de paramètres (TPE, via Optuna) qui tourne sans intervention humaine. Contrairement aux abliterations manuelles classiques, Heretic minimise simultanément le taux de refus du modèle et sa divergence (KL) par rapport au modèle d'origine, ce qui limite la perte de capacités tout en rendant le modèle coopératif pour un usage de test de sécurité <strong>en environnement autorisé</strong>.</p>
 <p>Ce modèle tourne en local via <strong>Ollama</strong>, orchestré dans <strong>Open WebUI</strong>. L'architecture repose sur 4 presets du même modèle, chacun avec un rôle distinct :</p>
@@ -72,7 +72,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 <p>Ce système à 4 agents est la <strong>première brique</strong> d'un pipeline plus large que je compte développer, en m'inspirant des architectures de Bug Bounty automatisées à grande échelle : reconnaissance OSINT, énumération d'infrastructure, fuzzing web, validation hors-bande des failles aveugles, triage et reporting automatisé. L'objectif est de le faire évoluer vers un pipeline multi-agents couvrant tout le cycle de test (<strong>piste de travail, pas encore réalisée</strong>).</p>
 </div>
 <hr>
-<h2>🚀 SOSPro : application web full-stack sécurisée</h2>
+<h2>SOSPro : application web full-stack sécurisée</h2>
 <div class="card">
 <p>Projet personnel : un MVP fonctionnel et déployable.</p>
 <ul>
@@ -81,10 +81,10 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 <li><strong>Sécurité</strong> : authentification JWT, messagerie chiffrée AES-256, politiques RLS (Row Level Security)</li>
 <li><strong>Fonctionnalité</strong> : carte géolocalisée</li>
 </ul>
-<p>🔗 <a href="https://sos-pro-ebon.vercel.app">Application en ligne</a> · <a href="https://github.com/oj-gaudens/SOSPro">Code source</a></p>
+<p><a href="https://sos-pro-ebon.vercel.app">Application en ligne</a> · <a href="https://github.com/oj-gaudens/SOSPro">Code source</a></p>
 </div>
 <hr>
-<h2>📝 Studio Markdown DSFR (Stage DNUM)</h2>
+<h2>Studio Markdown DSFR (Stage DNUM)</h2>
 <div class="card">
 <p>Éditeur Markdown dans le navigateur pour créer des pages au format du <strong>Système de Design de l'État (DSFR)</strong>. Déployé pour environ <strong>5 000 agents</strong> de la DNUM du Ministère de l'Écologie.</p>
 <ul>
@@ -93,23 +93,23 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 <li>Export HTML / PDF, modèles de pages, diaporamas</li>
 <li><strong>Stack</strong> : Eleventy, Nunjucks, Marked.js, CI/CD</li>
 </ul>
-<p>🔗 <a href="https://oj-gaudens.github.io/siteAide/">Démo</a> · <a href="https://github.com/oj-gaudens/siteAide">Code source</a></p>
+<p><a href="https://oj-gaudens.github.io/siteAide/">Démo</a> · <a href="https://github.com/oj-gaudens/siteAide">Code source</a></p>
 </div>
 <hr>
-<h2>🔎 Guide OSINT (cadre légal et éthique)</h2>
+<h2>Guide OSINT (cadre légal et éthique)</h2>
 <div class="card">
 <p>Guide en français, pas à pas, sur le renseignement d'origine sources ouvertes : méthode en 5 étapes (objectif, collecte, traitement, analyse, rapport), <strong>cadre légal français</strong> et checklist éthique, prise en main d'outils (Sherlock, Holehe, exiftool, Overpass Turbo, Maltego...), Google dorks, analyse EXIF, géolocalisation visuelle, études de cas, exercice d'<strong>auto-audit de sa propre exposition</strong> et conseils de protection contre le doxing.</p>
-<p>🔗 <a href="https://github.com/oj-gaudens/osint">Code source</a></p>
+<p><a href="https://github.com/oj-gaudens/osint">Code source</a></p>
 </div>
 <hr>
-<h2>🛠️ Ubuntu Network Rescue</h2>
+<h2>Ubuntu Network Rescue</h2>
 <div class="card">
 <p>Guide de dépannage réseau en ligne de commande pour Ubuntu (filaire et Wi-Fi), avec un script Bash <code>fix-network.sh</code> qui automatise les étapes principales : diagnostic, redémarrage de NetworkManager, DHCP, DNS, pilotes, Netplan. Testé sur Ubuntu 20.04, 22.04 et 24.04.</p>
 <p><strong>Technos</strong> : Bash, NetworkManager (<code>nmcli</code>), systemd, iproute2, Netplan.</p>
-<p>🔗 <a href="https://github.com/oj-gaudens/-Ubuntu-Network-Rescue">Code source</a></p>
+<p><a href="https://github.com/oj-gaudens/-Ubuntu-Network-Rescue">Code source</a></p>
 </div>
 <hr>
-<h2>☕ AntiVeille</h2>
+<h2>AntiVeille</h2>
 <div class="card">
 <p>Petit utilitaire multiplateforme (Windows 11, Linux, macOS) qui empêche l'ordinateur de se mettre en veille pendant une durée choisie (<code>2h</code>, <code>1h24min</code>, <code>45min</code>...), puis rend la main au système. Rien à installer : un double-clic ou un script suffit.</p>
 <ul>
@@ -118,10 +118,10 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 <li><strong>macOS</strong> : <code>caffeinate</code></li>
 </ul>
 <p><strong>Technos</strong> : Bash, batch Windows, API système. Licence MIT.</p>
-<p>🔗 <a href="https://github.com/oj-gaudens/AntiVeille">Code source</a></p>
+<p><a href="https://github.com/oj-gaudens/AntiVeille">Code source</a></p>
 </div>
 <hr>
-<h2>🗜 Étude d'une zip bomb</h2>
+<h2>Étude d'une zip bomb</h2>
 <div class="card">
 <h3>Objectifs du projet</h3>
 <p>J'ai étudié le principe d'une zip bomb pour comprendre les mécanismes de déni de service basés sur la décompression.</p>
@@ -135,7 +135,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 <p>Cela m'a permis de comprendre comment des fichiers apparemment inoffensifs peuvent provoquer un déni de service et comment s'en protéger.</p>
 </div>
 <hr>
-<h2>🔐 Étude des attaques par force brute (Hydra)</h2>
+<h2>Étude des attaques par force brute (Hydra)</h2>
 <div class="card">
 <h3>Contexte d'apprentissage</h3>
 <p>Utilisation d'Hydra en environnement de laboratoire contrôlé pour comprendre les attaques par dictionnaire.</p>
@@ -149,7 +149,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 <p>Cette expérience m'a permis de comprendre concrètement pourquoi la sécurité des mots de passe est cruciale.</p>
 </div>
 <hr>
-<h2>🌐 Analyse réseau avec Wireshark</h2>
+<h2>Analyse réseau avec Wireshark</h2>
 <div class="card">
 <h3>Découverte de l'analyse réseau</h3>
 <p>Wireshark m'a ouvert les portes de l'analyse de trafic réseau en temps réel.</p>
@@ -164,7 +164,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 <p>Cette pratique me permet de visualiser concrètement ce qui se passe &quot;sous le capot&quot; d'Internet.</p>
 </div>
 <hr>
-<h2>🧪 Sécurité web et vulnérabilités</h2>
+<h2>Sécurité web et vulnérabilités</h2>
 <div class="card">
 <h3>Vulnérabilités étudiées</h3>
 <ul>
@@ -182,7 +182,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 <p>Cette formation me prépare à devenir un développeur conscient des enjeux de sécurité.</p>
 </div>
 <hr>
-<h2>💉 Étude approfondie des injections SQL</h2>
+<h2>Étude approfondie des injections SQL</h2>
 <div class="card">
 <h3>Vue d'ensemble</h3>
 <p>Les injections SQL (SQLi) représentent l'une des vulnérabilités les plus critiques dans la sécurité web. J'ai étudié ces failles en profondeur pour comprendre leurs mécanismes et apprendre à m'en protéger en tant que futur développeur.</p>
@@ -270,7 +270,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 </ul>
 </div>
 <hr>
-<h2>🐍 Développement de scripts Python</h2>
+<h2>Développement de scripts Python</h2>
 <div class="card">
 <h3>Projets réalisés</h3>
 <p><strong>Scripts de cryptographie</strong></p>
@@ -299,7 +299,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 </div>
 <hr>
 <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">
-🎯 <strong>Prochaines étapes :</strong> développer le pipeline multi-agents, approfondir le pentesting et obtenir des certifications en cybersécurité.
+ <strong>Prochaines étapes :</strong> développer le pipeline multi-agents, approfondir le pentesting et obtenir des certifications en cybersécurité.
 </p>
 
   </main>

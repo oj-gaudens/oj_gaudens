@@ -1,4 +1,4 @@
-# 🚀 Guide de Démarrage Rapide
+# Guide de Démarrage Rapide
 
 ## Installation Rapide (5 minutes)
 
@@ -47,7 +47,7 @@ npm run build
 
 Les fichiers seront dans `docs/`
 
-## 🎨 Personnalisation du Design
+## Personnalisation du Design
 
 ### Changer les couleurs
 
@@ -69,7 +69,7 @@ Les fichiers seront dans `docs/`
 const text = "Votre texte personnalisé ici";
 ```
 
-## 🌐 Déploiement GitHub Pages
+## Déploiement GitHub Pages
 
 ### Méthode automatique (recommandée)
 
@@ -98,35 +98,35 @@ npm run build
 # Uploadez le contenu de docs/ sur votre hébergeur
 ```
 
-## 📱 Responsive
+## Responsive
 
 Le site s'adapte automatiquement :
-- 📱 Mobile : Menu sur 2 lignes max
-- 💻 Desktop : Menu sur une ligne
+- Mobile : Menu sur 2 lignes max
+- Desktop : Menu sur une ligne
 - La photo reste toujours en haut à gauche
 
-## 🎯 Points Importants
+## Points Importants
 
-✅ **La photo** apparaît dans une bulle séparée en haut à gauche
-✅ **Les liens de navigation** restent sur la même ligne (max 2 lignes sur mobile)
-✅ **Thème dark/light** avec bouton de bascule
-✅ **Animation terminal** au chargement
-✅ **100% responsive** et professionnel
+ **La photo** apparaît dans une bulle séparée en haut à gauche
+ **Les liens de navigation** restent sur la même ligne (max 2 lignes sur mobile)
+ **Thème dark/light** avec bouton de bascule
+ **Animation terminal** au chargement
+ **100% responsive** et professionnel
 
-## 🆘 Besoin d'aide ?
+## Besoin d'aide ?
 
 1. **La photo ne s'affiche pas** : Vérifiez que `src/assets/images/photo.jpg` existe
 2. **Le site ne se lance pas** : Faites `npm install` puis `npm run dev`
 3. **Erreur 404 sur GitHub Pages** : Vérifiez le `pathPrefix` dans `.eleventy.js`
 
-## 🔧 Commandes utiles
+## Commandes utiles
 
 ```bash
 npm run dev      # Développement avec hot reload
 npm run build    # Build production
 ```
 
-## 📝 Structure du projet
+## Structure du projet
 
 ```
 portfolio-improved/
@@ -152,4 +152,4 @@ portfolio-improved/
 └── README.md                   # Documentation
 ```
 
-Bonne chance avec votre portfolio ! 🚀
+Bonne chance avec votre portfolio ! 

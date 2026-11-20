@@ -11,7 +11,7 @@ N'hésitez pas à me contacter pour toute opportunité de stage, projet ou simpl
 
 ---
 
-## 📧 Informations de Contact
+## Informations de Contact
 
 <div class="card" style="text-align: center;">
 
@@ -27,7 +27,7 @@ Je réponds généralement sous 24-48 heures.
 
 ---
 
-## 📍 Localisation
+## Localisation
 
 <div class="card" style="text-align: center;">
 
@@ -41,16 +41,16 @@ Disponible pour des opportunités en Île-de-France.
 
 ---
 
-## 🎯 Opportunités Recherchées
+## Opportunités Recherchées
 
 <div class="card">
 
 **Je suis actuellement à la recherche de :**
 
-- 🔍 **Stages en cybersécurité** - Pentesting, audit de sécurité, SOC
-- 💼 **Alternances** - Pour 2027-2028 après le Bac Pro
-- 🤝 **Projets collaboratifs** - Développement, sécurité, infrastructure
-- 📚 **Mentorat** - Conseils de professionnels du secteur
+- **Stages en cybersécurité** - Pentesting, audit de sécurité, SOC
+- **Alternances** - Pour 2027-2028 après le Bac Pro
+- **Projets collaboratifs** - Développement, sécurité, infrastructure
+- **Mentorat** - Conseils de professionnels du secteur
 
 **Domaines d'intérêt :**
 - Cybersécurité offensive (pentesting)
@@ -63,18 +63,18 @@ Disponible pour des opportunités en Île-de-France.
 
 ---
 
-## 💡 Pourquoi me contacter ?
+## Pourquoi me contacter ?
 
 <div class="card">
 
 **Ce que je peux apporter :**
 
-✅ **Motivation et passion** pour la cybersécurité  
-✅ **Compétences techniques** en développement  
-✅ **Esprit d'équipe** développé par le sport  
-✅ **Curiosité** et volonté d'apprendre  
-✅ **Rigueur** et professionnalisme (stage ministère)  
-✅ **Autonomie** dans l'apprentissage
+ **Motivation et passion** pour la cybersécurité  
+ **Compétences techniques** en développement  
+ **Esprit d'équipe** développé par le sport  
+ **Curiosité** et volonté d'apprendre  
+ **Rigueur** et professionnalisme (stage ministère)  
+ **Autonomie** dans l'apprentissage
 
 **Mon profil convient pour :**
 - Entreprises recherchant un stagiaire motivé en cybersécurité
@@ -86,24 +86,24 @@ Disponible pour des opportunités en Île-de-France.
 
 ---
 
-## 📄 Documents Disponibles
+## Documents Disponibles
 
 <div class="card" style="text-align: center;">
 
-📋 **Mon CV complet**  
+ **Mon CV complet**  
 Disponible sur la [page CV]({{ '/CV/' | url }})
 
-🚀 **Mes projets**  
+ **Mes projets**  
 Découvrez mes réalisations sur la [page Projets]({{ '/projects/' | url }})
 
-💻 **Mes compétences**  
+ **Mes compétences**  
 Liste détaillée sur la [page Compétences]({{ '/skills/' | url }})
 
 </div>
 
 ---
 
-## ⏰ Disponibilités
+## Disponibilités
 
 <div class="card">
 
@@ -127,7 +127,7 @@ Liste détaillée sur la [page Compétences]({{ '/skills/' | url }})
 
 <div class="card" style="background: var(--accent-gradient); color: white; text-align: center; margin-top: 3rem;">
 
-## 🚀 Prêt à Échanger !
+## Prêt à Échanger !
 
 **Vous avez un projet, une opportunité ou simplement envie d'échanger sur la cybersécurité ?**
 

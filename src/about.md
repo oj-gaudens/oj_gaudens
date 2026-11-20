@@ -13,7 +13,7 @@ Petit à petit, je ne voulais plus seulement utiliser les outils, mais **compren
 
 ---
 
-## 🔍 Ma curiosité technique
+## Ma curiosité technique
 
 <div class="card">
 
@@ -31,7 +31,7 @@ Cette envie de comprendre en profondeur m'a naturellement dirigé vers la **cybe
 
 ---
 
-## 🏀 Le sport et ce qu'il m'apporte
+## Le sport et ce qu'il m'apporte
 
 <div class="card">
 
@@ -50,7 +50,7 @@ Ces qualités me servent autant sur un terrain que dans un projet informatique.
 
 ---
 
-## 📚 Ma veille personnelle
+## Ma veille personnelle
 
 <div class="card">
 

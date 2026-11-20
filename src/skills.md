@@ -11,15 +11,15 @@ Linux • Réseaux • Python • Pentesting • Sécurité Web
 
 ---
 
-## 💻 Systèmes d'exploitation
+## Systèmes d'exploitation
 
 <div class="card">
 
 **Environnements maîtrisés**
 
-- 🐧 **Linux** - Utilisation quotidienne, ligne de commande, administration système
-- 🪟 **Windows** - Environnement familier, configuration réseau
-- 🔓 **Kali Linux** - Distribution spécialisée en tests de sécurité et pentesting
+- **Linux** - Utilisation quotidienne, ligne de commande, administration système
+- **Windows** - Environnement familier, configuration réseau
+- **Kali Linux** - Distribution spécialisée en tests de sécurité et pentesting
 
 **Compétences système**
 - Configuration et administration
@@ -31,7 +31,7 @@ Linux • Réseaux • Python • Pentesting • Sécurité Web
 
 ---
 
-## 🌐 Réseaux & Infrastructure
+## Réseaux & Infrastructure
 
 <div class="card">
 
@@ -52,7 +52,7 @@ Linux • Réseaux • Python • Pentesting • Sécurité Web
 
 ---
 
-## 🔐 Outils de Cybersécurité
+## Outils de Cybersécurité
 
 <div class="card">
 
@@ -74,24 +74,24 @@ Linux • Réseaux • Python • Pentesting • Sécurité Web
 
 ---
 
-## 💾 Programmation & Développement
+## Programmation & Développement
 
 <div class="card">
 
 **Langages de programmation**
 
-- 🐍 **Python**
+- **Python**
   - Scripts d'automatisation
   - Outils de sécurité personnalisés
   - Manipulation de données
   - Scanner de ports TCP
 
-- 💻 **Bash**
+- **Bash**
   - Scripts système
   - Automatisation de tâches
   - Administration Linux
 
-- 🌐 **HTML/CSS/JavaScript**
+- **HTML/CSS/JavaScript**
   - Développement web
   - Compréhension de la sécurité web
   - Projets personnels
@@ -106,7 +106,7 @@ Linux • Réseaux • Python • Pentesting • Sécurité Web
 
 ---
 
-## 🐳 DevOps & Virtualisation
+## DevOps & Virtualisation
 
 <div class="card">
 
@@ -128,30 +128,30 @@ Linux • Réseaux • Python • Pentesting • Sécurité Web
 
 ---
 
-## 🎯 Compétences transversales
+## Compétences transversales
 
 <div class="card">
 
 **Méthodologie & Organisation**
 
-- ✅ Gestion de projet personnel
-- ✅ Veille technologique active
-- ✅ Documentation technique
-- ✅ Apprentissage autodidacte
-- ✅ Travail en équipe (basket + stage)
+- Gestion de projet personnel
+- Veille technologique active
+- Documentation technique
+- Apprentissage autodidacte
+- Travail en équipe (basket + stage)
 
 **Soft skills**
 
-- 🤝 Esprit d'équipe développé par le sport
-- 📊 Organisation et rigueur
-- 🔄 Adaptabilité aux nouvelles technologies
-- 🎯 Persévérance dans la résolution de problèmes
+- Esprit d'équipe développé par le sport
+- Organisation et rigueur
+- Adaptabilité aux nouvelles technologies
+- Persévérance dans la résolution de problèmes
 
 </div>
 
 ---
 
-## 📚 En cours d'apprentissage
+## En cours d'apprentissage
 
 <div class="card">
 
@@ -168,5 +168,5 @@ Linux • Réseaux • Python • Pentesting • Sécurité Web
 ---
 
 <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">
-🚀 <strong>Objectif :</strong> Devenir pentester ou ingénieur en cybersécurité
+ <strong>Objectif :</strong> Devenir pentester ou ingénieur en cybersécurité
 </p>

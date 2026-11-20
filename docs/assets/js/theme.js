@@ -16,7 +16,7 @@ function toggleTheme() {
   if (themeIcon) {
     themeIcon.style.transform = 'rotate(360deg) scale(0)';
     setTimeout(() => {
-      themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+      themeIcon.textContent = newTheme === 'dark' ? '◐' : '◑';
       themeIcon.style.transform = 'rotate(0deg) scale(1)';
     }, 150);
   }
@@ -37,7 +37,7 @@ function loadTheme() {
   
   const themeIcon = document.querySelector('.theme-icon');
   if (themeIcon) {
-    themeIcon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+    themeIcon.textContent = savedTheme === 'dark' ? '◐' : '◑';
     themeIcon.style.transition = 'transform 0.3s ease';
   }
   

@@ -14,7 +14,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 
 <div id="agent-pentest"></div>
 
-## 🤖 Agent IA de pentest multi-rôles (Open WebUI / Ollama)
+## Agent IA de pentest multi-rôles (Open WebUI / Ollama)
 
 <div class="card">
 
@@ -45,7 +45,7 @@ Ce système à 4 agents est la **première brique** d'un pipeline plus large que
 
 ---
 
-## 🚀 SOSPro : application web full-stack sécurisée
+## SOSPro : application web full-stack sécurisée
 
 <div class="card">
 
@@ -56,13 +56,13 @@ Projet personnel : un MVP fonctionnel et déployable.
 - **Sécurité** : authentification JWT, messagerie chiffrée AES-256, politiques RLS (Row Level Security)
 - **Fonctionnalité** : carte géolocalisée
 
-🔗 [Application en ligne](https://sos-pro-ebon.vercel.app) · [Code source](https://github.com/oj-gaudens/SOSPro)
+ [Application en ligne](https://sos-pro-ebon.vercel.app) · [Code source](https://github.com/oj-gaudens/SOSPro)
 
 </div>
 
 ---
 
-## 📝 Studio Markdown DSFR (Stage DNUM)
+## Studio Markdown DSFR (Stage DNUM)
 
 <div class="card">
 
@@ -73,25 +73,25 @@ Projet personnel : un MVP fonctionnel et déployable.
 - Export HTML / PDF, modèles de pages, diaporamas
 - **Stack** : Eleventy, Nunjucks, Marked.js, CI/CD
 
-🔗 [Démo](https://oj-gaudens.github.io/siteAide/) · [Code source](https://github.com/oj-gaudens/siteAide)
+ [Démo](https://oj-gaudens.github.io/siteAide/) · [Code source](https://github.com/oj-gaudens/siteAide)
 
 </div>
 
 ---
 
-## 🔎 Guide OSINT (cadre légal et éthique)
+## Guide OSINT (cadre légal et éthique)
 
 <div class="card">
 
 Guide en français, pas à pas, sur le renseignement d'origine sources ouvertes : méthode en 5 étapes (objectif, collecte, traitement, analyse, rapport), **cadre légal français** et checklist éthique, prise en main d'outils (Sherlock, Holehe, exiftool, Overpass Turbo, Maltego...), Google dorks, analyse EXIF, géolocalisation visuelle, études de cas, exercice d'**auto-audit de sa propre exposition** et conseils de protection contre le doxing.
 
-🔗 [Code source](https://github.com/oj-gaudens/osint)
+ [Code source](https://github.com/oj-gaudens/osint)
 
 </div>
 
 ---
 
-## 🛠️ Ubuntu Network Rescue
+## Ubuntu Network Rescue
 
 <div class="card">
 
@@ -99,13 +99,13 @@ Guide de dépannage réseau en ligne de commande pour Ubuntu (filaire et Wi-Fi),
 
 **Technos** : Bash, NetworkManager (`nmcli`), systemd, iproute2, Netplan.
 
-🔗 [Code source](https://github.com/oj-gaudens/-Ubuntu-Network-Rescue)
+ [Code source](https://github.com/oj-gaudens/-Ubuntu-Network-Rescue)
 
 </div>
 
 ---
 
-## ☕ AntiVeille
+## AntiVeille
 
 <div class="card">
 
@@ -117,13 +117,13 @@ Petit utilitaire multiplateforme (Windows 11, Linux, macOS) qui empêche l'ordin
 
 **Technos** : Bash, batch Windows, API système. Licence MIT.
 
-🔗 [Code source](https://github.com/oj-gaudens/AntiVeille)
+ [Code source](https://github.com/oj-gaudens/AntiVeille)
 
 </div>
 
 ---
 
-## 🗜 Étude d'une zip bomb
+## Étude d'une zip bomb
 
 <div class="card">
 
@@ -145,7 +145,7 @@ Cela m'a permis de comprendre comment des fichiers apparemment inoffensifs peuve
 
 ---
 
-## 🔐 Étude des attaques par force brute (Hydra)
+## Étude des attaques par force brute (Hydra)
 
 <div class="card">
 
@@ -167,7 +167,7 @@ Cette expérience m'a permis de comprendre concrètement pourquoi la sécurité 
 
 ---
 
-## 🌐 Analyse réseau avec Wireshark
+## Analyse réseau avec Wireshark
 
 <div class="card">
 
@@ -190,7 +190,7 @@ Cette pratique me permet de visualiser concrètement ce qui se passe "sous le ca
 
 ---
 
-## 🧪 Sécurité web et vulnérabilités
+## Sécurité web et vulnérabilités
 
 <div class="card">
 
@@ -214,7 +214,7 @@ Cette formation me prépare à devenir un développeur conscient des enjeux de s
 
 ---
 
-## 💉 Étude approfondie des injections SQL
+## Étude approfondie des injections SQL
 
 <div class="card">
 
@@ -318,7 +318,7 @@ Cette étude approfondie des injections SQL me permet de :
 
 ---
 
-## 🐍 Développement de scripts Python
+## Développement de scripts Python
 
 <div class="card">
 
@@ -351,5 +351,5 @@ Ces projets nourrissent mon ambition de devenir **pentester** ou **ingénieur s�
 ---
 
 <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">
-🎯 <strong>Prochaines étapes :</strong> développer le pipeline multi-agents, approfondir le pentesting et obtenir des certifications en cybersécurité.
+ <strong>Prochaines étapes :</strong> développer le pipeline multi-agents, approfondir le pentesting et obtenir des certifications en cybersécurité.
 </p>

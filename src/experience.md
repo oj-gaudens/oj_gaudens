@@ -11,14 +11,14 @@ Formation académique, expérience professionnelle et projets personnels
 
 ---
 
-## 🎓 Formation Académique
+## Formation Académique
 
 <div class="card">
 
 ### Bac Pro CIEL – Cybersécurité, Informatique et Réseaux, Électronique
 
-**📍 Lycée privé Saint-Erembert, Saint-Germain-en-Laye**  
-**📅 2026-2027 - Actuellement en Terminale**
+** Lycée privé Saint-Erembert, Saint-Germain-en-Laye**  
+** 2026-2027 - Actuellement en Terminale**
 
 **Programme et compétences développées :**
 - Cybersécurité et protection des systèmes
@@ -39,8 +39,8 @@ Formation académique, expérience professionnelle et projets personnels
 
 ### Classe de Seconde
 
-**📍 Lycée Lavoisier, Porcheville**  
-**📅 2024-2025**
+** Lycée Lavoisier, Porcheville**  
+** 2024-2025**
 
 - Découverte des métiers de l'informatique
 - Bases de la programmation
@@ -50,23 +50,23 @@ Formation académique, expérience professionnelle et projets personnels
 
 ---
 
-## 💼 Expérience Professionnelle
+## Expérience Professionnelle
 
 <div class="card">
 
-### 🏢 Stage au Ministère de l'Écologie (DNUM), janvier - février 2026
+### Stage au Ministère de l'Écologie (DNUM), janvier - février 2026
 
-**📍 La Défense**  
-**📅 Jan.-fév. 2026**  
-**🎯 Studio Markdown DSFR (Eleventy + CI/CD) déployé pour ~5 000 agents DNUM**
+** La Défense**  
+** Jan.-fév. 2026**  
+** Studio Markdown DSFR (Eleventy + CI/CD) déployé pour ~5 000 agents DNUM**
 
 ---
 
-### 🏢 Stage au Ministère de l'Écologie (DNUM), 2024 - 2025
+### Stage au Ministère de l'Écologie (DNUM), 2024 - 2025
 
-**📍 La Défense**  
-**📅 2024 - 2025**  
-**🎯 Stage en infrastructure numérique**
+** La Défense**  
+** 2024 - 2025**  
+** Stage en infrastructure numérique**
 
 **Missions techniques accomplies :**
 
@@ -99,7 +99,7 @@ Formation académique, expérience professionnelle et projets personnels
 
 ---
 
-## 💻 Projets Personnels en Cybersécurité
+## Projets Personnels en Cybersécurité
 
 <div class="card">
 
@@ -124,14 +124,14 @@ Formation académique, expérience professionnelle et projets personnels
 
 ---
 
-## 🏀 Engagement Sportif et Associatif
+## Engagement Sportif et Associatif
 
 <div class="card">
 
 ### Basket-ball - ASM Mantes
 
-**🏆 Équipe U18M - Régional 4 (Équipe 1)**  
-**📅 Pratique régulière - Compétition**
+** Équipe U18M - Régional 4 (Équipe 1)**  
+** Pratique régulière - Compétition**
 
 **Valeurs sportives développées :**
 - Esprit d'équipe et cohésion
@@ -162,12 +162,12 @@ Formation académique, expérience professionnelle et projets personnels
 
 ---
 
-## 📜 Diplômes et Certifications
+## Diplômes et Certifications
 
 <div class="card">
 
 **Service National Universel (SNU)**  
-📅 Juillet 2025
+ Juillet 2025
 
 - Engagement citoyen et volontaire
 - Formation aux premiers secours
@@ -177,14 +177,14 @@ Formation académique, expérience professionnelle et projets personnels
 ---
 
 **Diplôme National du Brevet**  
-📍 Collège privé Notre-Dame, Mantes-la-Jolie  
-📅 2023-2024
+ Collège privé Notre-Dame, Mantes-la-Jolie  
+ 2023-2024
 
 </div>
 
 ---
 
-## 🎯 Objectifs et Perspectives
+## Objectifs et Perspectives
 
 <div class="card">
 
@@ -209,5 +209,5 @@ Formation académique, expérience professionnelle et projets personnels
 ---
 
 <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem; color: var(--accent-primary);">
-💡 <strong>Passionné par la cybersécurité, je suis déterminé à construire une carrière dans ce domaine en constante évolution.</strong>
+ <strong>Passionné par la cybersécurité, je suis déterminé à construire une carrière dans ce domaine en constante évolution.</strong>
 </p>

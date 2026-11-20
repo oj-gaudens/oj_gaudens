@@ -10,7 +10,7 @@ Le but n'est jamais de nuire, mais d'apprendre et de comprendre les mécanismes 
 
 ---
 
-## 🤖 Agent IA de pentest multi-rôles
+## Agent IA de pentest multi-rôles
 
 <div class="card">
 
@@ -18,7 +18,7 @@ Système de 4 agents IA spécialisés (Open WebUI / Ollama, Qwen3-4B) : un chef 
 
 </div>
 
-## 🚀 SOSPro, Studio Markdown DSFR, guide OSINT...
+## SOSPro, Studio Markdown DSFR, guide OSINT...
 
 <div class="card">
 
@@ -26,7 +26,7 @@ Application web full-stack sécurisée, éditeur Markdown déployé pour ~5 000 
 
 </div>
 
-## 🗜 Étude d'une zip bomb
+## Étude d'une zip bomb
 
 <div class="card">
 
@@ -40,7 +40,7 @@ Cela m'a permis de comprendre comment des fichiers peuvent provoquer un déni de
 
 </div>
 
-## 🔐 Étude des attaques par force brute (Hydra)
+## Étude des attaques par force brute (Hydra)
 
 <div class="card">
 
@@ -52,7 +52,7 @@ J'ai utilisé Hydra en laboratoire pour comprendre :
 
 </div>
 
-## 🌐 Analyse réseau (Wireshark)
+## Analyse réseau (Wireshark)
 
 <div class="card">
 
@@ -65,7 +65,7 @@ Wireshark m'a permis de :
 
 </div>
 
-## 🧪 Sécurité web
+## Sécurité web
 
 <div class="card">
 
@@ -83,7 +83,7 @@ Pour comprendre :
 
 </div>
 
-## 🐍 Scripts Python
+## Scripts Python
 
 <div class="card">
 
