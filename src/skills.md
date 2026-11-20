@@ -112,7 +112,7 @@ Linux • Réseaux • Python • Pentesting • Sécurité Web
 
 **Technologies utilisées**
 
-- **Docker** - Conteneurisation d'applications
+- **Docker** - Conteneurisation d'applications (Open WebUI et Ollama déployés en conteneur sur ma tour Kali)
 - **Proxmox** - Virtualisation de serveurs (expérience en stage)
 - **Machines virtuelles** - Configuration et gestion (VirtualBox)
 - **pfSense** - Firewall et segmentation WAN/LAN/DMZ
